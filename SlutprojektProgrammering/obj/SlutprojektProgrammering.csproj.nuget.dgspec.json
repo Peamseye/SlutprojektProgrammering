@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\aslund.alexander\\null\\SlutprojektProgrammering\\SlutprojektProgrammering\\SlutprojektProgrammering.csproj": {}
+    "c:\\Users\\aslund.alexander\\null\\SlutprojektProgrammering\\SlutprojektProgrammering\\SlutprojektProgrammering.csproj": {}
   },
   "projects": {
-    "C:\\Users\\aslund.alexander\\null\\SlutprojektProgrammering\\SlutprojektProgrammering\\SlutprojektProgrammering.csproj": {
+    "c:\\Users\\aslund.alexander\\null\\SlutprojektProgrammering\\SlutprojektProgrammering\\SlutprojektProgrammering.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\aslund.alexander\\null\\SlutprojektProgrammering\\SlutprojektProgrammering\\SlutprojektProgrammering.csproj",
+        "projectUniqueName": "c:\\Users\\aslund.alexander\\null\\SlutprojektProgrammering\\SlutprojektProgrammering\\SlutprojektProgrammering.csproj",
         "projectName": "SlutprojektProgrammering",
-        "projectPath": "C:\\Users\\aslund.alexander\\null\\SlutprojektProgrammering\\SlutprojektProgrammering\\SlutprojektProgrammering.csproj",
+        "projectPath": "c:\\Users\\aslund.alexander\\null\\SlutprojektProgrammering\\SlutprojektProgrammering\\SlutprojektProgrammering.csproj",
         "packagesPath": "C:\\Users\\aslund.alexander\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\aslund.alexander\\null\\SlutprojektProgrammering\\SlutprojektProgrammering\\obj\\",
+        "outputPath": "c:\\Users\\aslund.alexander\\null\\SlutprojektProgrammering\\SlutprojektProgrammering\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\aslund.alexander\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -37,6 +37,12 @@
       "frameworks": {
         "net5.0": {
           "targetAlias": "net5.0",
+          "dependencies": {
+            "Raylib-cs": {
+              "target": "Package",
+              "version": "[4.0.0.1, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
