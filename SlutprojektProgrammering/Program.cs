@@ -2,5 +2,23 @@
 using System.Numerics;
 using Raylib_cs;
 
-Console.WriteLine("Hello World!");
+//Spelfönster
+Raylib.InitWindow(800, 600, "Final project");
+Raylib.SetTargetFPS(60);
 
+//METOD
+//PSEUDOKOD
+//ARRAY / LISTA
+//ALGORITMER
+
+//FOR-LOOP
+//IF-ELSE
+//TRYPARSE
+
+
+while (!Raylib.WindowShouldClose())
+{
+    Raylib.BeginDrawing();
+
+    Raylib.EndDrawing();
+}
