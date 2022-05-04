@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "c:\\Users\\aslund.alexander\\null\\SlutprojektProgrammering\\SlutprojektProgrammering\\SlutprojektProgrammering.csproj": {}
+    "C:\\Users\\aslund.alexander\\null\\SlutprojektProgrammering\\SlutprojektProgrammering\\SlutprojektProgrammering.csproj": {}
   },
   "projects": {
-    "c:\\Users\\aslund.alexander\\null\\SlutprojektProgrammering\\SlutprojektProgrammering\\SlutprojektProgrammering.csproj": {
+    "C:\\Users\\aslund.alexander\\null\\SlutprojektProgrammering\\SlutprojektProgrammering\\SlutprojektProgrammering.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\Users\\aslund.alexander\\null\\SlutprojektProgrammering\\SlutprojektProgrammering\\SlutprojektProgrammering.csproj",
+        "projectUniqueName": "C:\\Users\\aslund.alexander\\null\\SlutprojektProgrammering\\SlutprojektProgrammering\\SlutprojektProgrammering.csproj",
         "projectName": "SlutprojektProgrammering",
-        "projectPath": "c:\\Users\\aslund.alexander\\null\\SlutprojektProgrammering\\SlutprojektProgrammering\\SlutprojektProgrammering.csproj",
+        "projectPath": "C:\\Users\\aslund.alexander\\null\\SlutprojektProgrammering\\SlutprojektProgrammering\\SlutprojektProgrammering.csproj",
         "packagesPath": "C:\\Users\\aslund.alexander\\.nuget\\packages\\",
-        "outputPath": "c:\\Users\\aslund.alexander\\null\\SlutprojektProgrammering\\SlutprojektProgrammering\\obj\\",
+        "outputPath": "C:\\Users\\aslund.alexander\\null\\SlutprojektProgrammering\\SlutprojektProgrammering\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\aslund.alexander\\AppData\\Roaming\\NuGet\\NuGet.Config"
