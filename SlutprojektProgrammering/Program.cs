@@ -2,6 +2,8 @@
 using System.Numerics;
 using Raylib_cs;
 
+Texture2D ArenaImage = Raylib.LoadTexture("FinalProjBackground.png");
+
 //Spelfönster
 Raylib.InitWindow(800, 600, "Final project");
 Raylib.SetTargetFPS(60);
