@@ -2,9 +2,8 @@ using System;
 
 public class Store
 {
-   //string stores = Console.ReadLine();
-   //stores = decision.ToLower();
-    
+    public static void WriteCentered(string text)
+    {
 
-    
+    }
 }
