@@ -11,5 +11,12 @@ using System.Numerics;
 //-Flera loopar (Spelet i sig + utmaning)
 //-Algoritm
 
+//Programmets loop. Tillåter användaren att starta om loopen för att köpa fler produkter
+bool game = true;
+
+while (game == true)
+{
+    
+}
 
 Console.WriteLine();
