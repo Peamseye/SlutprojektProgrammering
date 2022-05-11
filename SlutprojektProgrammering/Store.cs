@@ -2,7 +2,7 @@ using System;
 
 public class Store
 {
-    public static void WriteCentered(string text)
+    public static void Options(string text)
     {
 
     }
