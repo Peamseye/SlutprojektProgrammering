@@ -48,7 +48,7 @@ while (game == true)
     //Bestämmer värdet på varje frukt beroende på svaret av "fruit"
     if (StoreOption == "a"){price = 50;}
 
-    if (StoreOption == "b"){ price = 110;}
+    if (StoreOption == "b"){ price = 100;}
 
     if (StoreOption == "c"){price = 400;}
 
