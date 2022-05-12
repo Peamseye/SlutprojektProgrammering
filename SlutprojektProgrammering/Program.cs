@@ -9,6 +9,7 @@ using System.Numerics;
 //-Metod
 //-Flera loopar (Spelet i sig + utmaning)
 //-Algoritm
+//-Gamestate
 
 
 int currency = 200;
