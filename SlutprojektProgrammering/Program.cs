@@ -1,11 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 
-//-Typkonvertering
-//-While loopar (starta om spelet / vinna spelet när passet är köpt).
-//-If-satser
+//-Typkonvertering (Klar)
 //-Array / Lista (Klar)
 //-Random generator (Klar)
+
+//-While loopar (starta om spelet / vinna spelet när passet är köpt).
+//-If-satser
 //-Metod
 //-Flera loopar (Spelet i sig + utmaning)
 //-Algoritm
@@ -63,8 +64,6 @@ while (game == true)
         if (answerMission == "a"){ Console.Clear(); area = "work"; }
 
         if (answerMission == "b"){ Console.Clear(); area = "store"; }
-
-
     }
 
     if (area == "missions" && currency >= 400){
@@ -130,14 +129,12 @@ while (game == true)
     }
 
     if (StoreOption == "c" && currency >= 400){price = 400; Console.WriteLine("Allows you to get out of the city"); 
-    Console.ReadLine();
+    area = "finalpurchase";
     }
 
-    if (StoreOption == "c" && currency < 400){price = 400; Console.WriteLine("Allows you to get out of the city");
-    
+    if (StoreOption == "c" && currency < 400){Console.WriteLine("Allows you to get out of the city");
+    Console.WriteLine("Sorry, but you cannot afford this. Please come back with more funds if you want to purchase it.");
     }
-
-
 
     Console.WriteLine("How many do you want to purchase?");
 
@@ -192,7 +189,9 @@ while (game == true)
         Console.WriteLine("");
         Console.WriteLine("a = yes                 b = no");
     }
-    if (currency >= 400 && price == 400){
+    if (area == "finalpurchase"){
+
+        Console.Clear();
 
         Console.WriteLine("Purchased the pass!");
         Console.WriteLine();
