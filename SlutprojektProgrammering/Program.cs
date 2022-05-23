@@ -1,19 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 
-//-Typkonvertering (Klar)
-//-Array / Lista (Klar)
-//-Random generator (Klar)
-
-//-While loopar (starta om spelet / vinna spelet när passet är köpt).
-//-If-satser
-//-Metod
-//-Flera loopar (Spelet i sig + utmaning)
-//-Algoritm
-//-Gamestate
-
 //
-int currency = 200;
+int currency = 100;
 //Startvaluta ($)
 
 //
@@ -26,11 +15,13 @@ int price = 0;
 
 
 //
-List<string> names = new List<string>() {"Ben", "Peter", "Walter", "Harry", "Joey"};
+List<string> names = new List<string>() {"Ben", "Peter", "Walter", "Harry"};
 Random generator = new Random();
-int name = generator.Next(names.Count);
+int n = generator.Next(names.Count);
+string name = names[n];
 //Slumpar vilken person som du får prata med.
 
+//
 string area = "start";
 //GameState som bestämmer vart spelaren är.
 
@@ -42,6 +33,8 @@ while (game == true)
 
     //
     if (area == "start"){
+        Console.WriteLine();
+        Console.WriteLine();
         Console.WriteLine("You need to buy a pass to exit the city.");
         Console.WriteLine("However, you do not have enough money right now.");
         Console.WriteLine($"You only have {currency} dollars, so you need to work for more.");
@@ -59,18 +52,22 @@ while (game == true)
     //
     if (area == "missions" && currency < 400){
         //
+        Console.Clear();
+        Console.WriteLine();
         Console.WriteLine("Please choose a destination.");
         Console.WriteLine();
         Console.WriteLine();
-        Console.WriteLine("a = Work (Gain $)     b = Store (Spend $)");
+        Console.WriteLine("a = WORK (Gain $)     b = STORE (Spend $)");
 
         string answerMission = Console.ReadLine();
         answerMission = answerMission.ToLower();
         //Bestäm input från spelaren, allting förutom a eller b ignoreras, allt konverteras till lowercase.
 
+        //
         if (answerMission == "a"){ Console.Clear(); area = "work"; }
         //Flytta spelaren till uppdragsmenyn
 
+        //
         if (answerMission == "b"){ Console.Clear(); area = "store"; }
         //Flytta spelaren till butiken
     }
@@ -86,7 +83,7 @@ while (game == true)
         Console.WriteLine("Please choose a destination.");
         Console.WriteLine();
         Console.WriteLine();
-        Console.WriteLine("a = Work [LOCKED!]     b = Store [BUY PASS!]"); 
+        Console.WriteLine("a = WORK [LOCKED!]     b = STORE [BUY PASS!]"); 
 
         string answerMissionP = Console.ReadLine();
         answerMissionP = answerMissionP.ToLower();
@@ -95,7 +92,7 @@ while (game == true)
         if (answerMissionP == "a"){
             Console.Clear();
             Console.WriteLine("You can afford a pass!");
-            Console.WriteLine("Now go to the store and get out!");
+            Console.WriteLine("Now go to the store and get out of the city!");
             Console.ReadLine();
 
             area = "store";
@@ -108,8 +105,93 @@ while (game == true)
     //Speciellt till när spelaren har samlat upp 400$, då spelet säger till spelaren att gå till butiken och köpa passet för att vinna.
 
     if (area == "work"){
-    //Gamestate till uppdragsmenyn. Här slumpas spelaren en dialog och ett uppdrag, som belönas med pengar om man lyckas.
+        //Gamestate till uppdragsmenyn. Här slumpas spelaren en dialog och ett uppdrag, som belönas med pengar om man lyckas.
+        Console.WriteLine("-WORK-");
         Console.WriteLine();
+        Console.WriteLine();
+        Console.WriteLine("You have a couple of people that want your services. They will pay you if you finish your job.");
+
+        Console.WriteLine();
+        Console.WriteLine();
+        Console.WriteLine("Do you wish to accept a job now?");
+
+        Console.WriteLine();
+        Console.WriteLine();
+        Console.WriteLine("a = YES     b = NO"); 
+
+        string answerWork = Console.ReadLine();
+        answerWork = answerWork.ToLower();
+
+        if (answerWork == "a"){
+        //Leder spelaren till de olika utmaningarna.
+            Console.Clear();
+
+            Console.WriteLine("Mission accepted.");
+            Console.WriteLine($"You will finish {name}'s mission. Go talk to him.");
+            Console.ReadLine();
+            
+            area = "game";
+        }
+
+        if (answerWork == "b"){
+        //Leder spelaren tillbaka till uppdragsmenyn.
+
+            Console.WriteLine("Come back anytime you need some work!");
+            Console.ReadLine();
+            
+            area = "missions";
+        }
+    }
+
+    if (area == "game"){
+
+        if (name == "Ben"){
+        //Bens uppdrag
+        
+        Random rewB = new Random();
+        int rewardB = rewB.Next(5, 50);
+
+        currency = currency + rewardB;
+        Console.WriteLine($"Your work from Ben rewarded you with {rewardB}$!");
+        Console.ReadLine();
+        area = "missions";
+        }
+
+        if (name == "Peter"){
+        //Peters uppdrag
+        
+        Random rewP = new Random();
+        int rewardP = rewP.Next(30, 60);
+
+        currency = currency + rewardP;
+        Console.WriteLine($"Your work from Peter rewarded you with {rewardP}$!");
+        Console.ReadLine();
+        area = "missions";
+        }
+
+        if (name == "Walter"){
+        //Walters uppdrag
+        
+        Random rewW = new Random();
+        int rewardW = rewW.Next(10, 20);
+
+        currency = currency + rewardW;
+        Console.WriteLine($"Your work from Walter rewarded you with {rewardW}$!");
+        Console.ReadLine();
+        area = "missions";
+        }
+
+        if (name == "Harry"){
+        //Harrys uppdrag
+
+        Random rewH = new Random();
+        int rewardH = rewH.Next(20, 50);
+                
+        currency = currency + rewardH;    
+        Console.WriteLine($"Your work from Harry rewarded you with {rewardH}$!");
+        Console.ReadLine();
+        area = "missions";
+        }
     }
     
 
@@ -126,38 +208,36 @@ while (game == true)
     {
         Console.Clear();
 
-        Console.WriteLine("Welcome to my store!");
+        Console.WriteLine("-STORE-");
         Console.WriteLine("");
         Console.WriteLine("");
         Console.WriteLine($"You have {currency}$.");
         Console.WriteLine("");
         Console.WriteLine("What do you want to purchase?");
         Console.WriteLine("");
-        Console.WriteLine("a = Rock (10$)     b = Bread (50$)     c = Pass (400$)");
+        Console.WriteLine("a = ROCK (5$)     b = BREAD (25$)     c = PASS (200$)");
 
         StoreOption = Console.ReadLine();
     }
     //
-    if (StoreOption == "a"){price = 10; Console.WriteLine("(Rocks don't do anything particular, they are rocks after all."); 
+    if (StoreOption == "a"){price = 5; Console.WriteLine("Rocks don't do anything particular. (They are rocks after all)"); 
     Console.ReadLine();
     }
 
-    if (StoreOption == "b"){ price = 50; Console.WriteLine("Increases the money you gain from missions"); 
+    if (StoreOption == "b"){ price = 25; Console.WriteLine("Gives you some food for the day, doesn't help you getting out however..."); 
     Console.ReadLine();
     }
     //Bestämmer värdet på varje produkt beroende på svaret av "StoreOption"
 
     //
-    if (StoreOption == "c" && currency < 400){Console.WriteLine("Allows you to get out of the city");
-    Console.WriteLine("Sorry, but you cannot afford this. Please come back with more funds if you want to purchase it.");
-    Console.WriteLine("You leave the store.");
-    area = "missions";
+    if (StoreOption == "c" && currency < 200){price = 200; Console.WriteLine("Allows you to get out of the city");
+    Console.ReadLine();
     }
    
-    if (StoreOption == "c" && currency >= 400){price = 400; Console.WriteLine("Allows you to get out of the city"); 
+    if (StoreOption == "c" && currency >= 200){price = 200; Console.WriteLine("Allows you to get out of the city"); 
     area = "finalpurchase";
     }
-    //Kollar om spelaren har råd för att köpa passet. Om ej, skickas de tillbaka till uppdragsmenyn. Om de kan, så skickas de automatiskt till slutet.
+    //Kollar om spelaren har råd för att köpa passet. Om ej, skickas de tillbaka till butiken. Om de kan, så skickas de automatiskt till slutet.
 
     Console.WriteLine("How many do you want to purchase?");
 
@@ -243,7 +323,7 @@ while (game == true)
         Console.WriteLine("");
         Console.WriteLine("Do you want to purchase more?");
         Console.WriteLine("");
-        Console.WriteLine("a = yes                 b = no");
+        Console.WriteLine("a = YES                 b = NO");
 
         answer = Console.ReadLine();
     }
@@ -253,14 +333,15 @@ while (game == true)
     {
         Console.Clear();
         game = true;
+        //Spelaren återgår till butiken.
     }
 
     if (answer == "b")
     {
         Console.WriteLine("You leave the store.");
-        Console.WriteLine("Press [ENTER] To Exit.");
         Console.Clear();
         area = "missions";
+        //Flyttar spelaren tillbaka till uppdragsmenyn
     }
 }
     }
