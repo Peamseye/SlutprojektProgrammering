@@ -265,8 +265,8 @@ while (game == true)
 }
     }
 
-//Avslutar loopen och stänger ner konsolen.
 if (game == false)
+//Avslutar loopen och stänger ner konsolen då spelaren har köpt passet.
 {
     Console.ReadLine();
 }
