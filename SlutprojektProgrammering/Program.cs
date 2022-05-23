@@ -1,11 +1,11 @@
 ﻿using System;
-using System.Numerics;
+using System.Collections.Generic;
 
 //-Typkonvertering
 //-While loopar (starta om spelet / vinna spelet när passet är köpt).
 //-If-satser
-//-Array / Lista
-//-Random generator
+//-Array / Lista (Klar)
+//-Random generator (Klar)
 //-Metod
 //-Flera loopar (Spelet i sig + utmaning)
 //-Algoritm
@@ -13,21 +13,49 @@ using System.Numerics;
 
 
 int currency = 200;
-//Startvaluta
+//Startvaluta ($)
 
 int amount = 0;
-//Mängden produkter i affären
+//Mängden produkter i affären (Startar på 0).
 
 int price = 0;
-//Värdet på produkterna spelaren har valt att köpa
+//Värdet på produkterna spelaren har valt att köpa (Startar på 0).
+
+List<string> names = new List<string>() {"Ben", "Peter", "Walter", "Harry"};
+
+Random generator = new Random();
+
+int name = generator.Next(names.Count);
+//Slumpar vilken person som du får prata med.
 
 bool game = true;
+
+string area = "start";
+//GameState som bestämmer vart spelaren är.
 
 //Programmets loop. Fortsätter loopas tills spelaren köper ett pass.
 while (game == true)
 {
 
-//Fruit = Första svaret på frågan
+    if (area == "start"){
+        Console.WriteLine("You need to buy a pass to exit the city.");
+        Console.WriteLine("However, you do not have enough money right now.");
+        Console.WriteLine($"You only have {currency} dollars, so you need to work for more.");
+
+        Console.WriteLine();
+        Console.WriteLine("Luckily, you know some people who could pay you for some work.");
+
+        Console.ReadLine();
+        area = "missions";
+    }
+
+    if (area == "missions"){
+        
+    }
+
+    if (area == "store"){
+
+    //Fruit = Första svaret på frågan
     string StoreOption = Console.ReadLine();
     StoreOption = StoreOption.ToLower();
 
@@ -36,6 +64,9 @@ while (game == true)
     {
         Console.Clear();
 
+        Console.WriteLine("Welcome to my store!");
+        Console.WriteLine("");
+        Console.WriteLine("");
         Console.WriteLine($"You have {currency}$.");
         Console.WriteLine("");
         Console.WriteLine("What do you want to purchase?");
@@ -137,11 +168,11 @@ while (game == true)
     if (answer == "b")
     {
         Console.WriteLine("You leave the store.");
-        Console.WriteLine("Press [ENTER] To Exit.");
-        game = false;
+        //Console.WriteLine("Press [ENTER] To Exit.");
+        area = "missions";
     }
-
 }
+    }
 
 //Avslutar loopen och stänger ner konsolen.
 if (game == false)
