@@ -12,7 +12,7 @@ using System.Collections.Generic;
 //-Gamestate
 
 
-int currency = 200;
+int currency = 400;
 //Startvaluta ($)
 
 int amount = 0;
@@ -46,18 +46,62 @@ while (game == true)
         Console.WriteLine("Luckily, you know some people who could pay you for some work.");
 
         Console.ReadLine();
+        Console.Clear();
+
         area = "missions";
     }
 
-    if (area == "missions"){
+    if (area == "missions" && currency < 400){
+        Console.WriteLine("Please choose a destination.");
+        Console.WriteLine();
+        Console.WriteLine();
+        Console.WriteLine("a = Work (Gain $)     b = Store (Spend $)");
+
+        string answerMission = Console.ReadLine();
+        answerMission = answerMission.ToLower();
+
+        if (answerMission == "a"){ Console.Clear(); area = "work"; }
+
+        if (answerMission == "b"){ Console.Clear(); area = "store"; }
+
+
+    }
+
+    if (area == "missions" && currency >= 400){
+        Console.WriteLine();
+        Console.WriteLine();
+        Console.WriteLine("You can now afford a pass!");
+        Console.ReadLine();
+
+        Console.Clear();
+        Console.WriteLine("Please choose a destination.");
+        Console.WriteLine();
+        Console.WriteLine();
+        Console.WriteLine("a = Work [LOCKED!]     b = Store [BUY PASS!]"); 
+
+        string answerMissionP = Console.ReadLine();
+        answerMissionP = answerMissionP.ToLower();
+
+        if (answerMissionP == "a"){
+            Console.Clear();
+            Console.WriteLine("You can afford a pass!");
+            Console.WriteLine("Now go to the store and get out!");
+            Console.ReadLine();
+
+            area = "store";
+        }
+
+        if (answerMissionP == "b"){ area = "store"; }
+    }
+
+    if (area == "work"){
         
     }
 
     if (area == "store"){
-
-    //Fruit = Första svaret på frågan
-    string StoreOption = Console.ReadLine();
-    StoreOption = StoreOption.ToLower();
+    //StoreOption = Första svaret på frågan
+        string StoreOption = Console.ReadLine();
+        StoreOption = StoreOption.ToLower();
 
     //Tvingar användaren att välja mellan a, b eller c.
     while (StoreOption != "a" && StoreOption != "b" && StoreOption != "c")
@@ -71,17 +115,27 @@ while (game == true)
         Console.WriteLine("");
         Console.WriteLine("What do you want to purchase?");
         Console.WriteLine("");
-        Console.WriteLine("a = Steroids (50$)     b = Gloves (100$)     c = Pass (400$)");
+        Console.WriteLine("a = Rock (50$)     b = Bread (100$)     c = Pass (400$)");
 
         StoreOption = Console.ReadLine();
     }
 
     //Bestämmer värdet på varje frukt beroende på svaret av "fruit"
-    if (StoreOption == "a"){price = 50;}
+    if (StoreOption == "a"){price = 50; Console.WriteLine("(Rocks don't do anything particular, they are rocks after all."); 
+    Console.ReadLine();
+    }
 
-    if (StoreOption == "b"){ price = 100;}
+    if (StoreOption == "b"){ price = 100; Console.WriteLine("Increases the money you gain from missions"); 
+    Console.ReadLine();
+    }
 
-    if (StoreOption == "c"){price = 400;}
+    if (StoreOption == "c" && currency >= 400){price = 400; Console.WriteLine("Allows you to get out of the city"); 
+    Console.ReadLine();
+    }
+
+    if (StoreOption == "c" && currency < 400){price = 400; Console.WriteLine("Allows you to get out of the city");
+    
+    }
 
 
 
@@ -94,7 +148,7 @@ while (game == true)
 //Bestämmer mängden frukter som ska köpas av användaren. 
     bool success = int.TryParse(input, out amount);
 
-    //Startar en loop så länge användaren inte skriver in en siffra
+    //Startar en typkonverterande loop så länge användaren inte skriver in en siffra
     while (success != true)
     {
         Console.Clear();
@@ -138,6 +192,15 @@ while (game == true)
         Console.WriteLine("");
         Console.WriteLine("a = yes                 b = no");
     }
+    if (currency >= 400 && price == 400){
+
+        Console.WriteLine("Purchased the pass!");
+        Console.WriteLine();
+        Console.WriteLine("You leave the store immediately and rush out to the border.");
+        Console.WriteLine("You show the pass to the ticket booth, and they let you leave.");
+        
+        game = false;
+    }
 
     string answer = Console.ReadLine();
     answer = answer.ToLower();
@@ -169,6 +232,7 @@ while (game == true)
     {
         Console.WriteLine("You leave the store.");
         //Console.WriteLine("Press [ENTER] To Exit.");
+        Console.Clear();
         area = "missions";
     }
 }
